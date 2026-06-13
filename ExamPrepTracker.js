@@ -837,7 +837,7 @@ function BottomNav({ tab, setTab }) {
       onClick: () => setTab(item.id),
       style: {
         ...styles.navBtn,
-        color: tab === item.id ? "var(--color-text-info)" : "var(--color-text-secondary)"
+        color: tab === item.id ? "var(--color-accent-gold)" : "rgba(250,246,238,0.55)"
       },
       children: [
         /* @__PURE__ */ jsx("i", { className: item.icon, style: { fontSize: 20 }, "aria-hidden": "true" }),
@@ -855,60 +855,67 @@ var styles = {
     maxWidth: 480,
     margin: "0 auto",
     fontFamily: "var(--font-sans)",
-    paddingBottom: 70
+    paddingBottom: 70,
+    background: "var(--color-background-tertiary)"
   },
   header: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "1rem 1.25rem",
-    borderBottom: "0.5px solid var(--color-border-tertiary)"
+    padding: "1.1rem 1.25rem",
+    background: "var(--color-ink)",
+    color: "#FAF6EE"
   },
-  appName: { fontSize: 16, fontWeight: 500, margin: 0 },
-  examLabel: { fontSize: 12, color: "var(--color-text-secondary)", margin: 0 },
+  appName: { fontSize: 19, fontWeight: 600, margin: 0, fontFamily: "var(--font-serif)", color: "#FAF6EE", letterSpacing: "0.01em" },
+  examLabel: { fontSize: 12, color: "rgba(250,246,238,0.65)", margin: 0 },
   countdownBadge: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    background: "var(--color-background-info)",
+    background: "rgba(250,246,238,0.12)",
+    border: "0.5px solid rgba(250,246,238,0.25)",
     borderRadius: "var(--border-radius-md)",
     padding: "4px 12px"
   },
-  countdownNum: { fontSize: 16, fontWeight: 500, color: "var(--color-text-info)" },
-  countdownLabel: { fontSize: 10, color: "var(--color-text-info)" },
+  countdownNum: { fontSize: 17, fontWeight: 600, color: "var(--color-accent-gold)", fontFamily: "var(--font-serif)" },
+  countdownLabel: { fontSize: 10, color: "rgba(250,246,238,0.65)" },
   bellBtn: {
     width: 36,
     height: 36,
     borderRadius: "var(--border-radius-md)",
-    border: "0.5px solid var(--color-border-secondary)",
+    border: "0.5px solid rgba(250,246,238,0.25)",
     background: "transparent",
+    color: "#FAF6EE",
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
   },
-  content: { flex: 1, padding: "1rem 1.25rem" },
+  content: { flex: 1, padding: "1.25rem 1.25rem" },
   section: {},
-  sectionTitle: { fontSize: 18, fontWeight: 500, margin: "0 0 1rem" },
-  dateLabel: { fontSize: 14, color: "var(--color-text-secondary)", margin: "0 0 0.75rem" },
+  sectionTitle: { fontSize: 19, fontWeight: 600, margin: "0 0 1rem", fontFamily: "var(--font-serif)" },
+  dateLabel: { fontSize: 13, color: "var(--color-text-secondary)", margin: "0 0 0.75rem", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 500 },
   progressBarOuter: {
     width: "100%",
-    height: 8,
+    height: 10,
     background: "var(--color-background-secondary)",
     borderRadius: "var(--border-radius-md)",
-    overflow: "hidden"
+    overflow: "hidden",
+    border: "0.5px solid var(--color-border-tertiary)"
   },
   progressBarInner: {
     height: "100%",
-    background: "var(--color-text-info)",
+    background: "linear-gradient(90deg, var(--color-ink), var(--color-text-info))",
     transition: "width 0.3s"
   },
   progressText: { fontSize: 13, color: "var(--color-text-secondary)", margin: "6px 0 0" },
   taskCard: {
     background: "var(--color-background-primary)",
     border: "0.5px solid var(--color-border-tertiary)",
+    borderLeft: "3px solid var(--color-border-info)",
     borderRadius: "var(--border-radius-lg)",
     padding: "1rem 1.25rem",
-    marginBottom: 12
+    marginBottom: 12,
+    boxShadow: "0 1px 3px rgba(43,41,36,0.04)"
   },
   taskTime: { fontSize: 12, color: "var(--color-text-secondary)", margin: 0 },
   taskSubject: { fontSize: 15, fontWeight: 500, margin: "2px 0" },
@@ -975,15 +982,17 @@ var styles = {
   scheduleTime: { fontSize: 12, color: "var(--color-text-secondary)", minWidth: 50 },
   statsGrid: { display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 12, marginBottom: "1.5rem" },
   statCard: {
-    background: "var(--color-background-secondary)",
-    borderRadius: "var(--border-radius-md)",
+    background: "var(--color-background-primary)",
+    border: "0.5px solid var(--color-border-tertiary)",
+    borderRadius: "var(--border-radius-lg)",
     padding: "1rem"
   },
-  statLabel: { fontSize: 13, color: "var(--color-text-secondary)", margin: "0 0 4px" },
-  statValue: { fontSize: 22, fontWeight: 500, margin: 0 },
+  statLabel: { fontSize: 12, color: "var(--color-text-secondary)", margin: "0 0 4px", textTransform: "uppercase", letterSpacing: "0.05em" },
+  statValue: { fontSize: 24, fontWeight: 600, margin: 0, fontFamily: "var(--font-serif)", color: "var(--color-accent-gold)" },
   barOuter: {
     height: 80,
-    background: "var(--color-background-secondary)",
+    background: "var(--color-background-primary)",
+    border: "0.5px solid var(--color-border-tertiary)",
     borderRadius: "var(--border-radius-md)",
     display: "flex",
     alignItems: "flex-end",
@@ -1000,8 +1009,7 @@ var styles = {
     margin: "0 auto",
     display: "flex",
     justifyContent: "space-around",
-    background: "var(--color-background-primary)",
-    borderTop: "0.5px solid var(--color-border-tertiary)",
+    background: "var(--color-ink)",
     padding: "8px 0"
   },
   navBtn: {
